@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float drawDuration = 1f;
 
     [Header("UI Elements")]
-    [SerializeField] private Slider countdownSlider;
+    [SerializeField] private Slider countdownIndicator;
     [SerializeField] private Button drawButton;
     [SerializeField] private TMP_Text playerScoreText;
     [SerializeField] private TMP_Text aiScoreText;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         if (countdownTimer > 0)
         {
             countdownTimer -= Time.deltaTime;
-            countdownSlider.value = countdownTimer / countdownDuration;
+            countdownIndicator.value = countdownTimer / countdownDuration;
         }
         else
         {
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         isDrawPhase = false;
         hasWinner = false;
         countdownTimer = countdownDuration;
-        countdownSlider.value = 1;
+        countdownIndicator.value = 1;
         drawButton.interactable = false;
         SetDifficultyThreshold();
     }
